@@ -40,6 +40,7 @@
 
 #include <mach/port.h>
 #include <CoreGraphics/CGGeometry.h>
+#include <GraphicsServices/GSWindow.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -157,7 +158,7 @@ mach_port_name_t GSGetPurpleNamedPort(CFStringRef name);
 uint64_t GSCurrentEventTimestamp(void);
 void GSSendSystemEvent(struct GSEventRecord *record);
 void GSSendEvent(struct GSEventRecord *record, mach_port_name_t port);
-GSPathInfo GSEventGetPathInfoAtIndex(GSEventRef event, unsigned index);
+struct GSPathInfo GSEventGetPathInfoAtIndex(GSEventRef event, unsigned index);
 
 #ifdef __cplusplus
 }

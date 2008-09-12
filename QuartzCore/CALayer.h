@@ -4,13 +4,23 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2007 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import <Foundation/NSObject.h>
 
 #import "CAMediaTiming-Protocol.h"
 
 @interface CALayer : NSObject <CAMediaTiming>
 {
-    struct _CALayerIvars _attr;
+    struct _CALayerIvars {
+        int refcount;
+        unsigned int flags;
+        unsigned int parent;
+        void *sublayers;
+        CALayer *mask;
+        struct _CALayerState *state;
+        struct _CALayerState *previous_state;
+        struct _CALayerAnimation *animations;
+        unsigned int slots[3];
+    } _attr;
 }
 
 + (id)defaultValueForKey:(id)fp8;

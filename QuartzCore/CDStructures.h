@@ -139,18 +139,6 @@ struct _CALayerArrayIvars {
     char retained;
 };
 
-struct _CALayerIvars {
-    int refcount;
-    unsigned int flags;
-    unsigned int parent;
-    void *sublayers;
-    CALayer *mask;
-    struct _CALayerState *state;
-    struct _CALayerState *previous_state;
-    struct _CALayerAnimation *animations;
-    unsigned int slots[3];
-};
-
 struct _CALayerState;
 
 struct _CARenderAnimation {
