@@ -46,11 +46,14 @@ extern "C" {
 #endif
 
 struct GSPathInfo {
-    /*0x00*/ uint32_t x00;
-    /*0x04*/ uint32_t x04;
-    /*0x08*/ uint32_t x08;
-    /*0x0c*/ CGPoint position;
-    /*0x14*/ uint32_t x14;
+    /*0x00:13c*/ uint8_t x00; // key
+    /*0x01:13d*/ uint8_t x01;
+    /*0x02:13e*/ uint8_t x02; // 2=no
+    /*0x03:13f*/ uint8_t x03;
+    /*0x04:140*/ uint32_t x04;
+    /*0x08:144*/ uint32_t x08;
+    /*0x0c:148*/ CGPoint position;
+    /*0x14:14c*/ uint32_t x14;
 };
 
 struct GSEventRecord {
@@ -64,6 +67,13 @@ struct GSEventRecord {
     /*0x28:30*/ uint16_t eventNumber;
     /*0x2a:32*/ uint16_t x2a;
     /*0x2c:34*/ uint32_t size;
+};
+
+struct GSEventKeyInfo {
+    /*0x30:38*/ uint32_t type;
+    /*0x34:3c*/ uint16_t character;
+    /*0x38:3e*/ uint16_t characterSet;
+    /*0x3a:40*/ uint8_t keyRepeating;
 };
 
 struct GSEventHandInfo {
