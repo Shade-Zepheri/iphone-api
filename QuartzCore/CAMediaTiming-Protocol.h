@@ -5,8 +5,8 @@
  */
 
 @protocol CAMediaTiming
-- (id)fillMode;
-- (void)setFillMode:(id)fp8;
+- (NSString *)fillMode;
+- (void)setFillMode:(NSString *)fp8;
 - (BOOL)autoreverses;
 - (void)setAutoreverses:(BOOL)fp8;
 - (double)repeatDuration;

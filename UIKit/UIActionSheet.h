@@ -8,45 +8,6 @@
 
 @class NSMutableArray, UILabel, UIToolbar, UIWindow;
 
-/*XXX:*/typedef struct {
-    unsigned int numberOfRows:7;
-    unsigned int delegateAlertSheetButtonClicked:1;
-    unsigned int delegateDidPresentAlertSheet:1;
-    unsigned int delegateDidDismissAlertSheet:1;
-    unsigned int hideButtonBar:1;
-    unsigned int alertStyle:3;
-    unsigned int dontDimBackground:1;
-    unsigned int dismissSuspended:1;
-    unsigned int dontBlockInteraction:1;
-    unsigned int sheetWasPoppedUp:1;
-    unsigned int animating:1;
-    unsigned int hideWhenDoneAnimating:1;
-    unsigned int layoutWhenDoneAnimating:1;
-    unsigned int titleMaxLineCount:2;
-    unsigned int bodyTextMaxLineCount:3;
-    unsigned int runsModal:1;
-    unsigned int runningModal:1;
-    unsigned int addedTextView:1;
-    unsigned int addedTableShadows:1;
-    unsigned int showOverSBAlerts:1;
-    unsigned int showMinTableContent:1;
-    unsigned int bodyTextTruncated:1;
-    unsigned int orientation:3;
-    unsigned int delegateBodyTextAlignment:1;
-    unsigned int delegateClickedButtonAtIndex:1;
-    unsigned int delegateClickedButtonAtIndex2:1;
-    unsigned int delegateCancel:1;
-    unsigned int delegateCancel2:1;
-    unsigned int delegateWillPresent:1;
-    unsigned int delegateWillPresent2:1;
-    unsigned int delegateDidPresent:1;
-    unsigned int delegateDidPresent2:1;
-    unsigned int delegateWillDismiss:1;
-    unsigned int delegateWillDismiss2:1;
-    unsigned int delegateDidDismiss:1;
-    unsigned int delegateDidDismiss2:1;
-} CDAnonymousStruct7;
-
 @interface UIActionSheet : UIView
 {
     id /*XXX:<UIActionSheetDelegate>*/ _delegate;

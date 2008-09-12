@@ -4,7 +4,7 @@
 @class NSString;
 
 #import <Foundation/NSObjCRuntime.h>
-#import <GraphicsServices/GSWindow.h>
+#import <GraphicsServices/GraphicsServices.h>
 
 /*XXX:*/typedef struct {
     float top;
@@ -12,6 +12,45 @@
     float bottom;
     float right;
 } CDAnonymousStruct2;
+
+/*XXX:*/typedef struct {
+    unsigned int numberOfRows:7;
+    unsigned int delegateAlertSheetButtonClicked:1;
+    unsigned int delegateDidPresentAlertSheet:1;
+    unsigned int delegateDidDismissAlertSheet:1;
+    unsigned int hideButtonBar:1;
+    unsigned int alertStyle:3;
+    unsigned int dontDimBackground:1;
+    unsigned int dismissSuspended:1;
+    unsigned int dontBlockInteraction:1;
+    unsigned int sheetWasPoppedUp:1;
+    unsigned int animating:1;
+    unsigned int hideWhenDoneAnimating:1;
+    unsigned int layoutWhenDoneAnimating:1;
+    unsigned int titleMaxLineCount:2;
+    unsigned int bodyTextMaxLineCount:3;
+    unsigned int runsModal:1;
+    unsigned int runningModal:1;
+    unsigned int addedTextView:1;
+    unsigned int addedTableShadows:1;
+    unsigned int showOverSBAlerts:1;
+    unsigned int showMinTableContent:1;
+    unsigned int bodyTextTruncated:1;
+    unsigned int orientation:3;
+    unsigned int delegateBodyTextAlignment:1;
+    unsigned int delegateClickedButtonAtIndex:1;
+    unsigned int delegateClickedButtonAtIndex2:1;
+    unsigned int delegateCancel:1;
+    unsigned int delegateCancel2:1;
+    unsigned int delegateWillPresent:1;
+    unsigned int delegateWillPresent2:1;
+    unsigned int delegateDidPresent:1;
+    unsigned int delegateDidPresent2:1;
+    unsigned int delegateWillDismiss:1;
+    unsigned int delegateWillDismiss2:1;
+    unsigned int delegateDidDismiss:1;
+    unsigned int delegateDidDismiss2:1;
+} CDAnonymousStruct7;
 
 typedef enum {
     UIBarButtonItemStylePlain,
@@ -91,6 +130,47 @@ typedef enum {
     UINavigationButtonStyleDestructive
 } UINavigationButtonStyle;
 
+typedef enum {
+    UITableViewCellEditingStyleNone,
+    UITableViewCellEditingStyleDelete,
+    UITableViewCellEditingStyleInsert
+} UITableViewCellEditingStyle;
+
+typedef enum {
+    UITableViewCellSeparatorStyleNone,
+    UITableViewCellSeparatorStyleSingleLine
+} UITableViewCellSeparatorStyle;
+
+typedef enum {
+    UITableViewRowAnimationFade,
+    UITableViewRowAnimationRight,
+    UITableViewRowAnimationLeft,
+    UITableViewRowAnimationTop,
+    UITableViewRowAnimationBottom,
+} UITableViewRowAnimation;
+
+typedef enum {
+    UITextAlignmentLeft   = 0,
+    UITextAlignmentCenter = 1,
+    UITextAlignmentRight  = 2,
+} UITextAlignment;
+
+typedef enum {
+    UITransitionNone           = 0,
+    UITransitionPushFromRight  = 1,
+    UITransitionPushFromLeft   = 2,
+    UITransitionPushFromBottom = 3,
+    UITransitionFade           = 6,
+    UITransitionPushFromTop    = 7,
+} UITransition;
+
+typedef enum {
+    UIViewAnimationCurveEaseInOut,
+    UIViewAnimationCurveEaseIn,
+    UIViewAnimationCurveEaseOut,
+    UIViewAnimationCurveLinear,
+} UIViewAnimationCurve;
+
 enum {
     UIViewAutoresizingNone                 = 0,
     UIViewAutoresizingFlexibleLeftMargin   = 1 << 0,
@@ -101,22 +181,7 @@ enum {
     UIViewAutoresizingFlexibleBottomMargin = 1 << 5,
 }; typedef NSUInteger UIViewAutoresizing;
 
-typedef enum {
-    UITransitionNone,
-    UITransitionPushFromRight,
-    UITransitionPushFromLeft,
-    UITransitionPushFromBottom,
-    UITransitionFade = 6,
-    UITransitionPushFromTop,
-} UITransition;
-
-typedef enum {
-    UIViewAnimationCurveEaseInOut,
-    UIViewAnimationCurveEaseIn,
-    UIViewAnimationCurveEaseOut,
-    UIViewAnimationCurveLinear,
-} UIViewAnimationCurve;
-
+#import <UIKit/UIAlertView.h>
 #import <UIKit/UIAnimator.h>
 #import <UIKit/UIApplication.h>
 #import <UIKit/UIBarButtonItem.h>
@@ -125,6 +190,7 @@ typedef enum {
 #import <UIKit/UIButton.h>
 #import <UIKit/UIColor.h>
 #import <UIKit/UIColor-UIColorSystemColors.h>
+#import <UIKit/UIDevice.h>
 #import <UIKit/UIFieldEditor.h>
 #import <UIKit/UIFrameAnimation.h>
 #import <UIKit/UIFont.h>
@@ -178,6 +244,7 @@ typedef enum {
 #import <UIKit/UIWebView.h>
 #import <UIKit/UIWindow.h>
 
+#import <UIKit/NSIndexPath-UITableView.h>
 #import <UIKit/NSString-UIStringDrawing.h>
 
 #import <CoreGraphics/CoreGraphics.h>

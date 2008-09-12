@@ -10,7 +10,7 @@
 
 @interface UIAlertView : UIView
 {
-    id <UIAlertViewDelegate> _delegate;
+    id /*XXX:<UIAlertViewDelegate>*/ _delegate;
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
     UILabel *_bodyTextLabel;
