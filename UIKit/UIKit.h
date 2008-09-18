@@ -205,6 +205,8 @@ enum {
 #import <UIKit/UIImageView.h>
 #import <UIKit/UIKeyboard.h>
 #import <UIKit/UIKeyboardImpl.h>
+#import <UIKit/UIModalView.h>
+#import <UIKit/UIModalView-Private.h>
 #import <UIKit/UINavigationBar.h>
 #import <UIKit/UINavigationButton.h>
 #import <UIKit/UINavigationController.h>

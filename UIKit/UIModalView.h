@@ -6,6 +6,7 @@
 
 #import <UIKit/UIView.h>
 
+#import "UIModalViewDelegate-Protocol.h"
 #import "UITextFieldDelegate-Protocol.h"
 
 @class NSMutableArray, UILabel, UIToolbar, UIWindow;
