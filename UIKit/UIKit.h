@@ -181,6 +181,7 @@ enum {
     UIViewAutoresizingFlexibleBottomMargin = 1 << 5,
 }; typedef NSUInteger UIViewAutoresizing;
 
+#import <UIKit/UIActionSheet-Private.h>
 #import <UIKit/UIAlertView.h>
 #import <UIKit/UIAnimator.h>
 #import <UIKit/UIApplication.h>
@@ -188,8 +189,10 @@ enum {
 #import <UIKit/UIBezierPath.h>
 #import <UIKit/UIBezierPath-UIInternal.h>
 #import <UIKit/UIButton.h>
+#import <UIKit/UIButton-UIButtonPrivate.h>
 #import <UIKit/UIColor.h>
 #import <UIKit/UIColor-UIColorSystemColors.h>
+#import <UIKit/UIControl-UIControlPrivate.h>
 #import <UIKit/UIDevice.h>
 #import <UIKit/UIFieldEditor.h>
 #import <UIKit/UIFrameAnimation.h>
@@ -199,6 +202,7 @@ enum {
 #import <UIKit/UIKeyboard.h>
 #import <UIKit/UIKeyboardImpl.h>
 #import <UIKit/UIImage.h>
+#import <UIKit/UIImage-UIImageDeprecated.h>
 #import <UIKit/UIImage-UIImageInternal.h>
 #import <UIKit/UIImage-UIImagePrivate.h>
 #import <UIKit/UIImageAndTextTableCell.h>
@@ -208,13 +212,17 @@ enum {
 #import <UIKit/UIModalView.h>
 #import <UIKit/UIModalView-Private.h>
 #import <UIKit/UINavigationBar.h>
+#import <UIKit/UINavigationBar-Static.h>
 #import <UIKit/UINavigationButton.h>
 #import <UIKit/UINavigationController.h>
 #import <UIKit/UINavigationItem.h>
+#import <UIKit/UIOldSliderControl.h>
 #import <UIKit/UIPreferencesTable.h>
 #import <UIKit/UIPreferencesTableCell.h>
+#import <UIKit/UIPreferencesTextTableCell.h>
 #import <UIKit/UIProgressBar.h>
 #import <UIKit/UIProgressHUD.h>
+#import <UIKit/UIProgressHUD-Deprecated.h>
 #import <UIKit/UIProgressIndicator.h>
 #import <UIKit/UIPushButton.h>
 #import <UIKit/UIScreen.h>
@@ -234,8 +242,10 @@ enum {
 #import <UIKit/UITextView.h>
 #import <UIKit/UIThreePartButton.h>
 #import <UIKit/UIToolbar.h>
+#import <UIKit/UIToolbar-UIButtonBarPrivate.h>
 #import <UIKit/UITransitionView.h>
 #import <UIKit/UIView-Animation.h>
+#import <UIKit/UIView-Deprecated.h>
 #import <UIKit/UIView-Geometry.h>
 #import <UIKit/UIView-Gestures.h>
 #import <UIKit/UIView-Hierarchy.h>
@@ -243,11 +253,15 @@ enum {
 #import <UIKit/UIViewController.h>
 #import <UIKit/UIWebDocumentView.h>
 #import <UIKit/UIWebDocumentView-Forms.h>
+#import <UIKit/UIWebDocumentView-Messaging.h>
 #import <UIKit/UIWebView.h>
 #import <UIKit/UIWindow.h>
+#import <UIKit/UIWindow-Static.h>
 
 #import <UIKit/NSIndexPath-UITableView.h>
+
 #import <UIKit/NSString-UIStringDrawing.h>
+#import <UIKit/NSString-UIStringDrawingDeprecated.h>
 
 #import <CoreGraphics/CoreGraphics.h>
 
@@ -276,5 +290,8 @@ extern NSString * const UIKeyboardDidHideNotification;
 extern NSString * const UIKeyboardCenterBeginUserInfoKey;
 extern NSString * const UIKeyboardCenterEndUserInfoKey;
 extern NSString * const UIKeyboardBoundsUserInfoKey;
+
+extern NSString * const UIWebViewDidReceiveMessageNotification;
+extern NSString * const UIWebViewDidClearMessagesNotification;
 
 #endif//UIKIT_UIKIT_H_
