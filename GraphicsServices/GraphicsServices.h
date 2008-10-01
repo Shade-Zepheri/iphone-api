@@ -39,6 +39,7 @@
 #define GRAPHICSSERVICES_GRAPHICSSERVICS_H_
 
 #include <mach/port.h>
+#import <CoreFoundation/CoreFoundation.h>
 #include <CoreGraphics/CGGeometry.h>
 #include <GraphicsServices/GSWindow.h>
 
@@ -169,6 +170,9 @@ uint64_t GSCurrentEventTimestamp(void);
 void GSSendSystemEvent(struct GSEventRecord *record);
 void GSSendEvent(struct GSEventRecord *record, mach_port_name_t port);
 struct GSPathInfo GSEventGetPathInfoAtIndex(GSEventRef event, unsigned index);
+
+CFArrayRef GSSystemGetCapability(CFStringRef type);
+extern CFStringRef const kGSDisplayIdentifiersCapability;
 
 #ifdef __cplusplus
 }
