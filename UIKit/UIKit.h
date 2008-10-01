@@ -131,6 +131,15 @@ typedef enum {
 } UINavigationButtonStyle;
 
 typedef enum {
+    UIProgressIndicatorStyleLargeWhite,
+    UIProgressIndicatorStyleMediumWhite,
+    UIProgressIndicatorStyleMediumBrown,
+    UIProgressIndicatorStyleSmallWhite,
+    UIProgressIndicatorStyleSmallBlack,
+    UIProgressIndicatorStyleTinyWhite,
+} UIProgressIndicatorStyle;
+
+typedef enum {
     UITableViewCellEditingStyleNone,
     UITableViewCellEditingStyleDelete,
     UITableViewCellEditingStyleInsert
@@ -263,6 +272,8 @@ enum {
 #import <UIKit/NSString-UIStringDrawing.h>
 #import <UIKit/NSString-UIStringDrawingDeprecated.h>
 
+#import <UIKit/NSURL-UIKitAdditions.h>
+
 #import <CoreGraphics/CoreGraphics.h>
 
 #ifdef __cplusplus
@@ -278,10 +289,17 @@ void UIApplicationUseLegacyEvents(BOOL use);
 void UIKeyboardEnableAutomaticAppearance(void);
 void UIKeyboardDisableAutomaticAppearance(void);
 
-
-#ifdef __cplusplus
-}
-#endif
+extern NSString * const kUIButtonBarButtonAction;
+extern NSString * const kUIButtonBarButtonInfo;
+extern NSString * const kUIButtonBarButtonInfoOffset;
+extern NSString * const kUIButtonBarButtonSelectedInfo;
+extern NSString * const kUIButtonBarButtonStyle;
+extern NSString * const kUIButtonBarButtonTag;
+extern NSString * const kUIButtonBarButtonTarget;
+extern NSString * const kUIButtonBarButtonTitle;
+extern NSString * const kUIButtonBarButtonTitleVerticalHeight;
+extern NSString * const kUIButtonBarButtonTitleWidth;
+extern NSString * const kUIButtonBarButtonType;
 
 extern NSString * const UIKeyboardWillShowNotification;
 extern NSString * const UIKeyboardDidShowNotification;
@@ -293,5 +311,11 @@ extern NSString * const UIKeyboardBoundsUserInfoKey;
 
 extern NSString * const UIWebViewDidReceiveMessageNotification;
 extern NSString * const UIWebViewDidClearMessagesNotification;
+
+extern UIApplication * const UIApp;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif//UIKIT_UIKIT_H_
