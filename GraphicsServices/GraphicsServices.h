@@ -43,6 +43,8 @@
 #include <CoreGraphics/CGGeometry.h>
 #include <GraphicsServices/GSWindow.h>
 
+typedef struct __GSFont *GSFontRef;
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -163,13 +165,14 @@ typedef struct __GSEvent *GSEventRef;
 
 #define _PurpleSystemEventPortName "PurpleSystemEventPort"
 
-struct GSEventHandInfo GSEventGetHandInfo(GSEventRef event);
 mach_port_name_t GSCopyPurpleSystemEventPort(void);
-mach_port_name_t GSGetPurpleNamedPort(CFStringRef name);
 uint64_t GSCurrentEventTimestamp(void);
-void GSSendSystemEvent(struct GSEventRecord *record);
-void GSSendEvent(struct GSEventRecord *record, mach_port_name_t port);
+struct GSEventHandInfo GSEventGetHandInfo(GSEventRef event);
+struct CGRect GSEventGetLocationInWindow(GSEventRef ev);
 struct GSPathInfo GSEventGetPathInfoAtIndex(GSEventRef event, unsigned index);
+mach_port_name_t GSGetPurpleNamedPort(CFStringRef name);
+void GSSendEvent(struct GSEventRecord *record, mach_port_name_t port);
+void GSSendSystemEvent(struct GSEventRecord *record);
 
 CFArrayRef GSSystemGetCapability(CFStringRef type);
 extern CFStringRef const kGSDisplayIdentifiersCapability;
