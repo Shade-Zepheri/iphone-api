@@ -7,10 +7,11 @@
 #import <UIKit/UIResponder.h>
 
 @class NSArray, NSMutableSet, UIEvent;
+@protocol UIApplicationDelegate;
 
 @interface UIApplication : UIResponder
 {
-    id /*XXX:<UIApplicationDelegate>*/ _delegate;
+    id <UIApplicationDelegate> _delegate;
     struct __CFDictionary *_touchMap;
     NSMutableSet *_exclusiveTouchWindows;
     UIEvent *_event;
@@ -218,6 +219,9 @@
 - (BOOL)launchApplicationWithIdentifier:(id)fp8 suspended:(BOOL)fp12;
 - (void)_runSpringboardCommand:(id)fp8;
 - (void)addStatusBarImageNamed:(id)fp8 removeOnAbnormalExit:(BOOL)fp12;
+#if 1 // iPhoneOS 2.2
+- (void)addStatusBarImageNamed:(id)fp8 removeOnExit:(BOOL)fp12;
+#endif
 - (void)addStatusBarImageNamed:(id)fp8;
 - (void)removeStatusBarImageNamed:(id)fp8;
 - (id)applicationBadge;

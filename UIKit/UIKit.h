@@ -3,8 +3,11 @@
 
 @class NSString;
 
-#import <Foundation/NSObjCRuntime.h>
+#import <Foundation/Foundation.h>
 #import <GraphicsServices/GraphicsServices.h>
+#import <CoreGraphics/CoreGraphics.h>
+
+typedef double UIAccelerationValue;
 
 /*XXX:*/typedef struct {
     float top;
@@ -117,11 +120,33 @@ typedef enum {
 } UIDeviceOrientation;
 
 typedef enum {
+    UIGestureAttributeMinDegrees,                 /*float*/
+    UIGestureAttributeMaxDegrees,                 /*float*/
+    UIGestureAttributeMinScale,                   /*float*/
+    UIGestureAttributeMaxScale,                   /*float*/
+    UIGestureAttributeIsZoomRubberBandEnabled,    /*BOOL*/
+    UIGestureAttributeZoomsFromCurrentToMinOrMax, /*BOOL*/
+    UIGestureAttributeVisibleSize,                /*CGSize*/
+    UIGestureAttributeUpdatesScroller,            /*BOOL*/
+} UIGestureAttribute;
+
+typedef enum {
     UIInterfaceOrientationPortrait           = UIDeviceOrientationPortrait,
     UIInterfaceOrientationPortraitUpsideDown = UIDeviceOrientationPortraitUpsideDown,
     UIInterfaceOrientationLandscapeLeft      = UIDeviceOrientationLandscapeRight,
     UIInterfaceOrientationLandscapeRight     = UIDeviceOrientationLandscapeLeft,
 } UIInterfaceOrientation;
+
+typedef enum {
+    UIKeyboardTypeDefault,
+    UIKeyboardTypeASCIICapable,
+    UIKeyboardTypeNumbersAndPunctuation,
+    UIKeyboardTypeURL,
+    UIKeyboardTypeNumberPad,
+    UIKeyboardTypePhonePad,
+    UIKeyboardTypeNamePhonePad,
+    UIKeyboardTypeEmailAddress,
+} UIKeyboardType;
 
 typedef enum {
     UINavigationButtonStyleNormal,
@@ -138,6 +163,26 @@ typedef enum {
     UIProgressIndicatorStyleSmallBlack,
     UIProgressIndicatorStyleTinyWhite,
 } UIProgressIndicatorStyle;
+
+typedef enum {
+    UIReturnKeyDefault,
+    UIReturnKeyGo,
+    UIReturnKeyGoogle,
+    UIReturnKeyJoin,
+    UIReturnKeyNext,
+    UIReturnKeyRoute,
+    UIReturnKeySearch,
+    UIReturnKeySend,
+    UIReturnKeyYahoo,
+    UIReturnKeyDone,
+    UIReturnKeyEmergencyCall,
+} UIReturnKeyType;
+
+typedef enum {
+    UISegmentedControlStylePlain,
+    UISegmentedControlStyleBordered,
+    UISegmentedControlStyleBar,
+} UISegmentedControlStyle;
 
 typedef enum {
     UITableViewCellEditingStyleNone,
@@ -159,10 +204,23 @@ typedef enum {
 } UITableViewRowAnimation;
 
 typedef enum {
-    UITextAlignmentLeft   = 0,
-    UITextAlignmentCenter = 1,
-    UITextAlignmentRight  = 2,
+    UITextAlignmentLeft,
+    UITextAlignmentCenter,
+    UITextAlignmentRight,
 } UITextAlignment;
+
+typedef enum {
+    UITextAutocapitalizationTypeNone,
+    UITextAutocapitalizationTypeWords,
+    UITextAutocapitalizationTypeSentences,
+    UITextAutocapitalizationTypeAllCharacters,
+} UITextAutocapitalizationType;
+
+typedef enum {
+    UITextAutocorrectionTypeDefault,
+    UITextAutocorrectionTypeNo,
+    UITextAutocorrectionTypeYes,
+} UITextAutocorrectionType;
 
 typedef enum {
     UITransitionNone           = 0,
@@ -190,6 +248,9 @@ enum {
     UIViewAutoresizingFlexibleBottomMargin = 1 << 5,
 }; typedef NSUInteger UIViewAutoresizing;
 
+#import <UIKit/UIAcceleration.h>
+#import <UIKit/UIAccelerometer.h>
+#import <UIKit/UIActionSheet.h>
 #import <UIKit/UIActionSheet-Private.h>
 #import <UIKit/UIAlertView.h>
 #import <UIKit/UIAnimator.h>
@@ -226,6 +287,7 @@ enum {
 #import <UIKit/UINavigationController.h>
 #import <UIKit/UINavigationItem.h>
 #import <UIKit/UIOldSliderControl.h>
+#import <UIKit/UIPreferencesControlTableCell.h>
 #import <UIKit/UIPreferencesTable.h>
 #import <UIKit/UIPreferencesTableCell.h>
 #import <UIKit/UIPreferencesTextTableCell.h>
@@ -236,6 +298,7 @@ enum {
 #import <UIKit/UIPushButton.h>
 #import <UIKit/UIScreen.h>
 #import <UIKit/UISearchField.h>
+#import <UIKit/UISegmentedControl.h>
 #import <UIKit/UISectionList.h>
 #import <UIKit/UISimpleTableCell.h>
 #import <UIKit/_UISwitchSlider.h>
@@ -252,12 +315,14 @@ enum {
 #import <UIKit/UIThreePartButton.h>
 #import <UIKit/UIToolbar.h>
 #import <UIKit/UIToolbar-UIButtonBarPrivate.h>
+#import <UIKit/UITouch.h>
 #import <UIKit/UITransitionView.h>
 #import <UIKit/UIView-Animation.h>
 #import <UIKit/UIView-Deprecated.h>
 #import <UIKit/UIView-Geometry.h>
 #import <UIKit/UIView-Gestures.h>
 #import <UIKit/UIView-Hierarchy.h>
+#import <UIKit/UIView-Internal.h>
 #import <UIKit/UIView-Rendering.h>
 #import <UIKit/UIViewController.h>
 #import <UIKit/UIWebDocumentView.h>
@@ -274,13 +339,19 @@ enum {
 
 #import <UIKit/NSURL-UIKitAdditions.h>
 
-#import <CoreGraphics/CoreGraphics.h>
+@protocol UIApplicationDelegate<NSObject>
+@end
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 int UIApplicationMain(int argc, char *argv[], NSString *principalClassName, NSString *delegateClassName);
+
+UIImage *_UIImageWithName(NSString *name);
+
+NSData *UIImageJPEGRepresentation(UIImage *image);
+NSData *UIImagePNGRepresentation(UIImage *image);
 
 CGContextRef UIGraphicsGetCurrentContext(void);
 UIWindow *UIWindowFindWithWindowRef(GSWindowRef window);
@@ -312,7 +383,13 @@ extern NSString * const UIKeyboardBoundsUserInfoKey;
 extern NSString * const UIWebViewDidReceiveMessageNotification;
 extern NSString * const UIWebViewDidClearMessagesNotification;
 
+extern float const UIWebViewGrowsAndShrinksToFitHeight;
+extern float const UIWebViewGrowsAndShrinksToFitWidth;
+extern float const UIWebViewScalesToFitScale;
+
 extern UIApplication * const UIApp;
+
+//UIFont *UISystemFontWithSize(CGFloat size);
 
 #ifdef __cplusplus
 }

@@ -6,8 +6,6 @@
 
 #import <UIKit/UIControl.h>
 
-#import "NSCoding-Protocol.h"
-
 @class NSMutableArray, UIColor, UIView;
 
 @interface UISegmentedControl : UIControl <NSCoding>

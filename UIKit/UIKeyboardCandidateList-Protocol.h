@@ -4,8 +4,6 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2007 by Steve Nygard.
  */
 
-#import "NSObject-Protocol.h"
-
 @protocol UIKeyboardCandidateList <NSObject>
 - (void)setCandidates:(id)fp8 inlineText:(id)fp12 inlineRect:(struct CGRect)fp16 maxX:(float)fp32 layout:(BOOL)fp36;
 - (void)layout;

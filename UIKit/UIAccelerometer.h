@@ -6,6 +6,8 @@
 
 #import <Foundation/NSObject.h>
 
+@protocol UIAccelerometerDelegate;
+
 @interface UIAccelerometer : NSObject
 {
     double _updateInterval;
@@ -24,5 +26,12 @@
 - (id)delegate;
 - (double)updateInterval;
 
+@end
+
+@class UIAcceleration;
+
+@protocol UIAccelerometerDelegate<NSObject>
+@optional
+- (void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration;
 @end
 
