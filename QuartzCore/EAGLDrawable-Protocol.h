@@ -5,7 +5,7 @@
  */
 
 @protocol EAGLDrawable
-- (id)drawableProperties;
-- (void)setDrawableProperties:(id)fp8;
+- (NSDictionary *)drawableProperties;
+- (void)setDrawableProperties:(NSDictionary *)fp8;
 @end
 

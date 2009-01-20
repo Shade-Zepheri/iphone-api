@@ -18,8 +18,8 @@
 - (struct _EAGLNativeWindowObject *)nativeWindow;
 - (void)dealloc;
 - (void)_display;
-- (id)drawableProperties;
-- (void)setDrawableProperties:(id)fp8;
+- (NSDictionary *)drawableProperties;
+- (void)setDrawableProperties:(NSDictionary *)fp8;
 
 @end
 
