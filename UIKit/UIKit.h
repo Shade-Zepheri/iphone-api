@@ -356,6 +356,10 @@ NSData *UIImagePNGRepresentation(UIImage *image);
 CGContextRef UIGraphicsGetCurrentContext(void);
 UIWindow *UIWindowFindWithWindowRef(GSWindowRef window);
 
+GSFontRef UISystemFontCreate(unsigned size, bool bold);
+GSFontRef UISystemFontForSize(unsigned size);
+GSFontRef UISystemFontBoldForSize(unsigned size);
+
 void UIApplicationUseLegacyEvents(BOOL use);
 void UIKeyboardEnableAutomaticAppearance(void);
 void UIKeyboardDisableAutomaticAppearance(void);
