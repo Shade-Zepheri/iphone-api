@@ -4,7 +4,14 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2007 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import "Foundation/NSObject.h"
+
+typedef struct {
+    long long value;
+    int timescale;
+    long long epoch;
+    unsigned int flags;
+} AVTime;
 
 @interface AVController : NSObject
 {
@@ -23,8 +30,8 @@
 - (id)init;
 - (void)dealloc;
 - (struct AVControllerPrivate *)privateStorage;
-- (BOOL)isNewImageAvailableForTime:(const CDAnonymousStruct1 *)fp8 willNeverBeAvailable:(char *)fp12;
-- (long)copyImageForTime:(struct __CVBuffer **)fp8 time:(const CDAnonymousStruct1 *)fp12;
+- (BOOL)isNewImageAvailableForTime:(const AVTime *)fp8 willNeverBeAvailable:(char *)fp12;
+- (long)copyImageForTime:(struct __CVBuffer **)fp8 time:(const AVTime *)fp12;
 - (void)scheduleQueueSpaceCheck;
 - (void)checkQueueSpace;
 - (id)queue;

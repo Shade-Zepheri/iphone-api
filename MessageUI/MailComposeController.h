@@ -9,6 +9,8 @@
 #import "DADSearchQueryConsumer-Protocol.h"
 #import "MailComposeViewDelegate-Protocol.h"
 
+#import <CoreGraphics/CGGeometry.h>
+
 @class ComposeBodyField, ComposeRecipientView, ComposeSubjectView, GenericAttachmentStore, MFError, MailComposeView, MailCompositionContext, MailboxUid, MutableMessageHeaders, NSArray, NSString, NSTimer, OutgoingMessage, OutgoingMessageDelivery;
 
 @interface MailComposeController : NSObject <MailComposeViewDelegate, DADSearchQueryConsumer>
