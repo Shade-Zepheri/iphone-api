@@ -41,9 +41,9 @@
 #include <mach/port.h>
 #import <CoreFoundation/CoreFoundation.h>
 #include <CoreGraphics/CGGeometry.h>
-#include <GraphicsServices/GSWindow.h>
 
-typedef struct __GSFont *GSFontRef;
+#include <GraphicsServices/GSFont.h>
+#include <GraphicsServices/GSWindow.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -86,6 +86,12 @@ struct GSEventHandInfo {
     /*0x38:3e:06:64*/ uint16_t x38;
     /*0x3a:40:08:68*/ CGPoint x3a;
     /*0x40:48:10:70*/ uint32_t x40; //handInfoScale scales
+};
+
+struct GSEventApplicationInfo {
+    /*0x30:00*/ uint32_t pid;
+    /*0x34:04*/ uint32_t x34;
+    /*0x38:08*/ char name[];
 };
 
 struct GSEventRecordInfo {
@@ -168,11 +174,12 @@ typedef struct __GSEvent *GSEventRef;
 mach_port_name_t GSCopyPurpleSystemEventPort(void);
 uint64_t GSCurrentEventTimestamp(void);
 struct GSEventHandInfo GSEventGetHandInfo(GSEventRef event);
-struct CGRect GSEventGetLocationInWindow(GSEventRef ev);
+struct CGRect GSEventGetLocationInWindow(GSEventRef event);
 struct GSPathInfo GSEventGetPathInfoAtIndex(GSEventRef event, unsigned index);
 mach_port_name_t GSGetPurpleNamedPort(CFStringRef name);
 void GSSendEvent(struct GSEventRecord *record, mach_port_name_t port);
 void GSSendSystemEvent(struct GSEventRecord *record);
+struct GSEventRecord *_GSEventGetGSEventRecord(GSEventRef event);
 
 CFArrayRef GSSystemGetCapability(CFStringRef type);
 extern CFStringRef const kGSDisplayIdentifiersCapability;

@@ -38,13 +38,13 @@
 #ifndef GRAPHICSSERVICS_GSWINDOW_H_
 #define GRAPHICSSERVICS_GSWINDOW_H_
 
-#ifdef __plusplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
 typedef struct __GSWindow *GSWindowRef;
 
-#ifdef __plusplus
+#ifdef __cplusplus
 }
 #endif
 
