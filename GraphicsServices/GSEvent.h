@@ -35,8 +35,8 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef GRAPHICSSERVICES_GRAPHICSSERVICS_H_
-#define GRAPHICSSERVICES_GRAPHICSSERVICS_H_
+#ifndef GRAPHICSSERVICES_GSEVENT_H_
+#define GRAPHICSSERVICES_GSEVENT_H_
 
 #include <mach/port.h>
 #import <CoreFoundation/CoreFoundation.h>
@@ -171,6 +171,8 @@ typedef struct __GSEvent *GSEventRef;
 
 #define _PurpleSystemEventPortName "PurpleSystemEventPort"
 
+float GSDefaultStatusBarHeight(void);
+//GSColorRef GSColorForSystemColor(unsigned color);
 mach_port_name_t GSCopyPurpleSystemEventPort(void);
 uint64_t GSCurrentEventTimestamp(void);
 struct GSEventHandInfo GSEventGetHandInfo(GSEventRef event);
@@ -188,4 +190,4 @@ extern CFStringRef const kGSDisplayIdentifiersCapability;
 }
 #endif
 
-#endif//GRAPHICSSERVICES_GRAPHICSSERVICS_H_
+#endif//GRAPHICSSERVICES_GSEVENT_H_
