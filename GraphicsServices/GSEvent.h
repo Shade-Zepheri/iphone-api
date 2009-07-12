@@ -1,5 +1,5 @@
 /* iPhone Open SDK - Free Open Source Anti-Apple SDK
- * Copyright (C) 2008  Jay Freeman (saurik)
+ * Copyright (C) 2008-2009  Jay Freeman (saurik)
 */
 
 /*
@@ -39,11 +39,7 @@
 #define GRAPHICSSERVICES_GSEVENT_H_
 
 #include <mach/port.h>
-#import <CoreFoundation/CoreFoundation.h>
 #include <CoreGraphics/CGGeometry.h>
-
-#include <GraphicsServices/GSFont.h>
-#include <GraphicsServices/GSWindow.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -65,19 +61,23 @@ struct GSEventRecord {
     /*0x04:0c*/ uint32_t subType;
     /*0x08:10*/ CGPoint locationOnScreen;
     /*0x10:18*/ CGPoint locationInWindow;
-    /*0x18:20*/ uint64_t timestamp; //(GSCurrentEventTimestamp)
-    /*0x20:28*/ uint32_t zero;
-    /*0x24:2c*/ uint32_t modifierFlags;
-    /*0x28:30*/ uint16_t eventNumber;
-    /*0x2a:32*/ uint16_t x2a;
-    /*0x2c:34*/ uint32_t size;
+#if 1
+    /*0x18:20*/ uint32_t windowContextId; /*3*/
+#endif
+    /*0x1c:24*/ uint64_t timestamp; //(GSCurrentEventTimestamp)
+    /*0x24:2c*/ uint32_t zero;
+    /*0x28:30*/ uint32_t modifierFlags;
+    /*0x2c:34*/ uint16_t eventNumber;
+    /*0x2e:36*/ uint16_t x2a;
+    /*0x30:38*/ uint32_t size;
 };
 
-struct GSEventKeyInfo {
+struct __attribute__((__packed__)) GSEventKeyInfo {
     /*0x30:38*/ uint32_t type;
     /*0x34:3c*/ uint16_t character;
     /*0x38:3e*/ uint16_t characterSet;
     /*0x3a:40*/ uint8_t keyRepeating;
+    /*0x3b:41*/ uint8_t unknown;
 };
 
 struct GSEventHandInfo {
@@ -121,14 +121,18 @@ typedef struct __GSEvent *GSEventRef;
 
 #define GSEventTypeMenuButtonDown           0x03e8
 #define GSEventTypeMenuButtonUp             0x03e9
+#define GSEventTypeVolumeUpButtonDown       0x03ee /*3*/
+#define GSEventTypeVolumeUpButtonUp         0x03ef /*3*/
+#define GSEventTypeVolumeDownButtonDown     0x03f0 /*3*/
+#define GSEventTypeVolumeDownButtonUp       0x03f1 /*3*/
+#define GSEventTypeLockButtonDown           0x03f2
+#define GSEventTypeLockButtonUp             0x03f3
 #define GSEventTypeRingerChanged0           0x03f4
 #define GSEventTypeRingerChanged1           0x03f5
 #define GSEventTypeLockDevice               0x03f6
 #define GSEventTypeStatusBarMouseDown       0x03f7
 #define GSEventTypeStatusBarMouseDragged    0x03f8
 #define GSEventTypeStatusBarMouseUp         0x03f9
-#define GSEventTypeLockButtonDown           0x03f2
-#define GSEventTypeLockButtonUp             0x03f3
 #define GSEventTypeHeadsetButtonDown        0x03fa
 #define GSEventTypeHeadsetButtonUp          0x03fb
 
@@ -137,6 +141,7 @@ typedef struct __GSEvent *GSEventRef;
 #define GSEventTypeSetBacklightLevel        0x044f
 
 #define GSEventTypeApplicationStarted                  0x07d0
+// 0x07d1 <- while SpringBoard is starting
 #define GSEventTypeAnotherApplicationFinishedLauncing  0x07d2
 #define GSEventTypeApplicationTerminateWithStatus      0x07d3
 #define GSEventTypeApplicationSuspended                0x07d4
@@ -169,22 +174,19 @@ typedef struct __GSEvent *GSEventRef;
 #define GSMouseEventTypeUp      0x6
 #define GSMouseEventTypeCancel  0x8
 
-#define _PurpleSystemEventPortName "PurpleSystemEventPort"
-
-float GSDefaultStatusBarHeight(void);
-//GSColorRef GSColorForSystemColor(unsigned color);
-mach_port_name_t GSCopyPurpleSystemEventPort(void);
 uint64_t GSCurrentEventTimestamp(void);
 struct GSEventHandInfo GSEventGetHandInfo(GSEventRef event);
 struct CGRect GSEventGetLocationInWindow(GSEventRef event);
 struct GSPathInfo GSEventGetPathInfoAtIndex(GSEventRef event, unsigned index);
-mach_port_name_t GSGetPurpleNamedPort(CFStringRef name);
 void GSSendEvent(struct GSEventRecord *record, mach_port_name_t port);
 void GSSendSystemEvent(struct GSEventRecord *record);
 struct GSEventRecord *_GSEventGetGSEventRecord(GSEventRef event);
-
-CFArrayRef GSSystemGetCapability(CFStringRef type);
-extern CFStringRef const kGSDisplayIdentifiersCapability;
+//GSEventCreateWithTypeAndLocation(); /*3*/
+GSEventRef GSEventCreateWithEventRecord(struct GSEventRecord *record); /*3*/
+CFTypeID GSEventGetTypeID(void);
+CFPropertyListRef GSEventCreatePlistRepresentation(GSEventRef event);
+GSEventRef _GSCreateSyntheticKeyEvent(UniChar key, BOOL up, BOOL repeating);
+void _GSPostSyntheticKeyEvent(CFStringRef keys, BOOL up, BOOL repeating);
 
 #ifdef __cplusplus
 }
