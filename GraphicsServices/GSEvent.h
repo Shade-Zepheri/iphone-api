@@ -38,6 +38,7 @@
 #ifndef GRAPHICSSERVICES_GSEVENT_H_
 #define GRAPHICSSERVICES_GSEVENT_H_
 
+#include <objc/objc.h>
 #include <mach/port.h>
 #include <CoreGraphics/CGGeometry.h>
 
@@ -186,6 +187,7 @@ GSEventRef GSEventCreateWithEventRecord(struct GSEventRecord *record); /*3*/
 CFTypeID GSEventGetTypeID(void);
 CFPropertyListRef GSEventCreatePlistRepresentation(GSEventRef event);
 GSEventRef _GSCreateSyntheticKeyEvent(UniChar key, BOOL up, BOOL repeating);
+GSEventRef GSCreateKeyEvent(UniChar key, BOOL up, BOOL repeating);
 void _GSPostSyntheticKeyEvent(CFStringRef keys, BOOL up, BOOL repeating);
 
 #ifdef __cplusplus
