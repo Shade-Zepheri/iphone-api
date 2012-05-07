@@ -57,6 +57,11 @@ struct GSPathInfo {
     /*0x14:14c*/ uint32_t x14;
 };
 
+/*
+Oct  4 11:19:07 iPod-touch MobileNotes[457]: [data] 0x020: 00 00 01 00  04 02 01 00  00 00 00 00  e0 28 ec 40  .............(.@
+Oct  4 11:19:07 iPod-touch MobileNotes[457]: [data] 0x030: 00 80 05 43  00 80 98 43  70 4f 1b 00               ...C...CpO..
+*/
+
 struct GSEventRecord {
     /*0x00:08*/ uint32_t type;
     /*0x04:0c*/ uint32_t subType;
@@ -66,12 +71,22 @@ struct GSEventRecord {
     /*0x18:20*/ uint32_t windowContextId; /*3*/
 #endif
     /*0x1c:24*/ uint64_t timestamp; //(GSCurrentEventTimestamp)
-    /*0x24:2c*/ uint32_t zero;
-    /*0x28:30*/ uint32_t modifierFlags;
-    /*0x2c:34*/ uint16_t eventNumber;
-    /*0x2e:36*/ uint16_t x2a;
+
+    /*0x24:2c*/ uint32_t zero; //0x1b4f70
+    /*0x28:30*/ uint32_t modifierFlags; //0x0
+
+    /*0x2c:34*/ uint16_t eventNumber; //0x1bb
+    /*0x2e:36*/ uint16_t x2a; //0x0
+
     /*0x30:38*/ uint32_t size;
 };
+
+/*
+Oct  4 11:19:07 iPod-touch MobileNotes[457]: [rcrd] 0x000: b9 0b 00 00  00 00 00 00  00 80 05 43  00 80 98 43  ...........C...C
+Oct  4 11:19:07 iPod-touch MobileNotes[457]: [rcrd] 0x010: 00 80 05 43  00 80 98 43  00 00 00 00  c9 c4 24 48  ...C...C......$H
+Oct  4 11:19:07 iPod-touch MobileNotes[457]: [rcrd] 0x020: 90 01 00 00 <>  70 4f 1b 00  00 00 00 00  bb 01 00 00  ....pO..........
+Oct  4 11:19:07 iPod-touch MobileNotes[457]: [rcrd] 0x030: 3c 00 00 00                                         <...
+*/
 
 struct __attribute__((__packed__)) GSEventKeyInfo {
     /*0x30:38*/ uint32_t type;
@@ -105,6 +120,13 @@ struct GSEventRecordInfo {
     /*0x52:5a:22*/ uint16_t x52;
     /*0x54:5c:24*/ struct GSPathInfo pathInfo[];
 };
+
+/*
+Oct  4 11:19:07 iPod-touch MobileNotes[457]: [data] 0x000: 06 00 00 00  01 00 00 00  00 00 00 00  00 00 00 00  ................
+Oct  4 11:19:07 iPod-touch MobileNotes[457]: [data] 0x010: 00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00  ................
+Oct  4 11:19:07 iPod-touch MobileNotes[457]: [data] 0x020: 00 00 01 00  04 02 01 00  00 00 00 00  e0 28 ec 40  .............(.@
+Oct  4 11:19:07 iPod-touch MobileNotes[457]: [data] 0x030: 00 80 05 43  00 80 98 43  70 4f 1b 00               ...C...CpO..
+*/
 
 /*struct __GSEvent {
     struct CFRuntimeBase base_;
