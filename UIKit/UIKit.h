@@ -10,6 +10,20 @@
 typedef double UIAccelerationValue;
 
 /*XXX:*/typedef struct {
+    struct CGRect _field1;
+    struct CGRect _field2;
+    struct CGRect _field3;
+    struct CGRect _field4;
+    struct CGRect _field5;
+    id _field6;
+    id _field7;
+    unsigned int _field8;
+    unsigned int _field9;
+    unsigned int _field10;
+    id _field11;
+} CDAnonymousStruct9;
+
+/*XXX:*/typedef struct {
     float top;
     float left;
     float bottom;
@@ -149,6 +163,15 @@ typedef enum {
 } UIKeyboardType;
 
 typedef enum {
+    UILineBreakModeWordWrap,
+    UILineBreakModeCharacterWrap,
+    UILineBreakModeClip,
+    UILineBreakModeHeadTruncation,
+    UILineBreakModeTailTruncation,
+    UILineBreakModeMiddleTruncation,
+} UILineBreakMode;
+
+typedef enum {
     UINavigationButtonStyleNormal,
     UINavigationButtonStyleBack,
     UINavigationButtonStyleHighlighted,
@@ -202,6 +225,18 @@ typedef enum {
     UITableViewRowAnimationTop,
     UITableViewRowAnimationBottom,
 } UITableViewRowAnimation;
+
+typedef enum {
+    UITableViewScrollPositionNone,
+    UITableViewScrollPositionTop,
+    UITableViewScrollPositionMiddle,
+    UITableViewScrollPositionBottom,
+} UITableViewScrollPosition;
+
+typedef enum {
+    UITableViewStylePlain,
+    UITableViewStyleGrouped,
+} UITableViewStyle;
 
 typedef enum {
     UITextAlignmentLeft,
@@ -263,14 +298,16 @@ enum {
 #import <UIKit/UIColor.h>
 #import <UIKit/UIColor-UIColorSystemColors.h>
 #import <UIKit/UIControl-UIControlPrivate.h>
+#import <UIKit/UICoverFlowLayer.h>
+#import <UIKit/UIDefaultKeyboardInput.h>
 #import <UIKit/UIDevice.h>
+#import <UIKit/UIEvent.h>
 #import <UIKit/UIFieldEditor.h>
 #import <UIKit/UIFrameAnimation.h>
 #import <UIKit/UIFont.h>
+#import <UIKit/UIFormAssistant.h>
 #import <UIKit/UIHardware.h>
 #import <UIKit/UIFieldEditor.h>
-#import <UIKit/UIKeyboard.h>
-#import <UIKit/UIKeyboardImpl.h>
 #import <UIKit/UIImage.h>
 #import <UIKit/UIImage-UIImageDeprecated.h>
 #import <UIKit/UIImage-UIImageInternal.h>
@@ -279,6 +316,8 @@ enum {
 #import <UIKit/UIImageView.h>
 #import <UIKit/UIKeyboard.h>
 #import <UIKit/UIKeyboardImpl.h>
+#import <UIKit/UIKeyboardLayoutRoman.h>
+#import <UIKit/UIKeyboardSublayout.h>
 #import <UIKit/UIModalView.h>
 #import <UIKit/UIModalView-Private.h>
 #import <UIKit/UINavigationBar.h>
@@ -306,6 +345,8 @@ enum {
 #import <UIKit/UITableColumn.h>
 #import <UIKit/UITableView.h>
 #import <UIKit/UITableViewCell.h>
+#import <UIKit/UITableViewCell-UITableViewCellInternal.h>
+#import <UIKit/UITableViewCell-UITableViewCellStatic.h>
 #import <UIKit/UITableViewController.h>
 #import <UIKit/UITableViewDelegate-Protocol.h>
 #import <UIKit/UITextField.h>
@@ -313,6 +354,9 @@ enum {
 #import <UIKit/UITextLabel.h>
 #import <UIKit/UITextView.h>
 #import <UIKit/UIThreePartButton.h>
+#import <UIKit/UITabBar.h>
+#import <UIKit/UITabBar-UITabBarPrivate.h>
+#import <UIKit/UITabBarItem.h>
 #import <UIKit/UIToolbar.h>
 #import <UIKit/UIToolbar-UIButtonBarPrivate.h>
 #import <UIKit/UITouch.h>
@@ -327,6 +371,7 @@ enum {
 #import <UIKit/UIViewController.h>
 #import <UIKit/UIWebDocumentView.h>
 #import <UIKit/UIWebDocumentView-Forms.h>
+#import <UIKit/UIWebDocumentView-Interaction.h>
 #import <UIKit/UIWebDocumentView-Messaging.h>
 #import <UIKit/UIWebView.h>
 #import <UIKit/UIWindow.h>
@@ -334,6 +379,7 @@ enum {
 
 #import <UIKit/NSIndexPath-UITableView.h>
 
+#import <UIKit/NSString-UIKBExtras.h>
 #import <UIKit/NSString-UIStringDrawing.h>
 #import <UIKit/NSString-UIStringDrawingDeprecated.h>
 
@@ -356,6 +402,13 @@ NSData *UIImagePNGRepresentation(UIImage *image);
 CGContextRef UIGraphicsGetCurrentContext(void);
 UIWindow *UIWindowFindWithWindowRef(GSWindowRef window);
 
+NSString *UIFormattedPhoneNumberFromString(NSString *string);
+NSString *UIUnformattedPhoneNumberFromString(NSString *string);
+
+void UIRectFill(CGRect rect);
+void UISetColor(CGColorRef color);
+void UISetSystemColor(unsigned color);
+
 GSFontRef UISystemFontCreate(unsigned size, bool bold);
 GSFontRef UISystemFontForSize(unsigned size);
 GSFontRef UISystemFontBoldForSize(unsigned size);
@@ -363,6 +416,8 @@ GSFontRef UISystemFontBoldForSize(unsigned size);
 void UIApplicationUseLegacyEvents(BOOL use);
 void UIKeyboardEnableAutomaticAppearance(void);
 void UIKeyboardDisableAutomaticAppearance(void);
+
+BOOL UIKeyboardInputModeUsesKBStar(NSString *);
 
 extern NSString * const kUIButtonBarButtonAction;
 extern NSString * const kUIButtonBarButtonInfo;

@@ -30,17 +30,17 @@
     UIKeyboardReturnKeyView *m_returnKeyView;
     NSMutableArray *m_extraImageViews;
     struct {
-        struct CGRect;
-        struct CGRect;
-        struct CGRect;
-        struct CGRect;
-        struct CGRect;
-        NSString *;
-        NSString *;
-        unsigned int;
-        unsigned int;
-        unsigned int;
-        id;
+        struct CGRect _field1;
+        struct CGRect _field2;
+        struct CGRect _field3;
+        struct CGRect _field4;
+        struct CGRect _field5;
+        NSString * _field6;
+        NSString * _field7;
+        unsigned int _field8;
+        unsigned int _field9;
+        unsigned int _field10;
+        id _field11;
     } *m_keys;
     unsigned int m_keysCount;
     struct __CFDictionary *m_replacementKeys;

@@ -4,7 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2007 by Steve Nygard.
  */
 
-#import "NSString.h"
+#import "Foundation/NSString.h"
 
 @interface NSString (UIKBExtras)
 + (id)stringWithUnichar:(unsigned short)fp8;

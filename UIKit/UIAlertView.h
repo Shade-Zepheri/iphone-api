@@ -52,9 +52,19 @@
 - (void)_setFirstOtherButtonIndex:(int)fp8;
 - (int)firstOtherButtonIndex;
 - (void)dismissWithClickedButtonIndex:(int)fp8 animated:(BOOL)fp12;
-- (id)initWithTitle:(id)fp8 message:(id)fp12 delegate:(id)fp16 cancelButtonTitle:(id)fp20 otherButtonTitles:(id)fp24;
+- (id)initWithTitle:(id)fp8 message:(id)fp12 delegate:(id)fp16 cancelButtonTitle:(id)fp20 otherButtonTitles:(id)fp24, ...;
 - (id)initWithFrame:(struct CGRect)fp8;
 - (void)show;
+
+#if 1//...
+- (void)setForceHorizontalButtonsLayout:(BOOL)force;
+#endif
+
+#if 1//...
+- (void)setContext:(NSString *)string;
+- (NSString *)context;
+- (void)setNumberOfRows:(int)rows;
+#endif
 
 @end
 

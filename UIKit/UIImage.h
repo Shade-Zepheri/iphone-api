@@ -33,6 +33,9 @@ typedef enum {
 + (id)imageWithContentsOfFile:(id)fp8;
 + (id)imageWithData:(id)fp8;
 + (id)imageWithCGImage:(struct CGImage *)fp8;
+#if 1 // iOS 4.x
++ (id)imageWithCGImage:(struct CGImage *)fp8 scale:(CGFloat)scale orientation:(UIImageOrientation)orientation;
+#endif
 - (id)initWithContentsOfFile:(id)fp8;
 - (id)initWithData:(id)fp8;
 - (id)initWithCGImage:(struct CGImage *)fp8;
@@ -49,6 +52,10 @@ typedef enum {
 - (int)topCapHeight;
 - (id)stretchableImageWithLeftCapWidth:(int)fp8 topCapHeight:(int)fp12;
 - (id)_automationID;
+
+#if 1 // iOS 4.x?
+- (void) setScale:(CGFloat)scale;
+#endif
 
 @end
 

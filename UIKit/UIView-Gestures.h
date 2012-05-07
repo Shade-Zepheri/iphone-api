@@ -43,6 +43,9 @@
 - (void)setRotationDegrees:(float)fp8 duration:(double)fp12;
 - (float)rotationDegrees;
 - (void)setZoomScale:(float)fp8 duration:(double)fp12;
+#if 1 // iPhoneOS 3.x
+- (void)_setZoomScale:(float)fp8 duration:(double)fp12;
+#endif
 - (float)zoomScale;
 - (int)stateForGestureType:(int)fp8;
 - (void)_resetZoomingWithEvent:(struct __GSEvent *)fp8;

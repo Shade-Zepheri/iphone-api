@@ -90,6 +90,11 @@
 - (int)selectionStyle;
 - (void)setSelected:(BOOL)fp8;
 - (BOOL)isSelected;
+#if 1 // iPhoneOS 3.x
+- (BOOL)_isHighlighted;
+- (BOOL)isHighlighted;
+- (float)selectionPercent;
+#endif
 - (void)_deselectAnimationFinished;
 - (void)setSelected:(BOOL)fp8 animated:(BOOL)fp12;
 - (void)setEditingStyle:(int)fp8;
@@ -129,6 +134,9 @@
 - (void)setAccessoryAction:(SEL)fp8;
 - (SEL)accessoryAction;
 - (void)drawRect:(struct CGRect)fp8;
+#if 1 // iPhoneOS 3.x
+- (void)setDrawingEnabled:(BOOL)fp8;
+#endif
 - (void)_setIsAncestorOfFirstResponder:(BOOL)fp8;
 - (void)removeFromSuperview;
 - (void)layoutSubviews;

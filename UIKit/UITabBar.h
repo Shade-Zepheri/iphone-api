@@ -11,7 +11,7 @@
 @interface UITabBar : UIView
 {
     UIView *_customizeView;
-    id <UITabBarDelegate> _delegate;
+    id /*XXX:<UITabBarDelegate>*/ _delegate;
     NSArray *_items;
     UITabBarItem *_selectedItem;
     NSArray *_customizationItems;

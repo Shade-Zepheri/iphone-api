@@ -5,8 +5,9 @@
  */
 
 #import <UIKit/UIView.h>
+#import <UIKit/UIFormPeripheral-Protocol.h>
 
-@class NSMutableDictionary, UIButton, UIImageView, UIInformalDelegate, UITransitionView, UIView<UIFormPeripheral>;
+@class NSMutableDictionary, UIButton, UIImageView, UIInformalDelegate, UITransitionView, UIView/*<UIFormPeripheral>*/;
 
 @interface UIFormAssistant : UIView
 {

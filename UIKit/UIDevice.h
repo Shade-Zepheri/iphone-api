@@ -16,7 +16,7 @@
 }
 
 + (void)initialize;
-+ (id)currentDevice;
++ (UIDevice *)currentDevice;
 - (id)name;
 - (id)model;
 - (id)localizedModel;
@@ -30,6 +30,8 @@
 - (void)beginGeneratingDeviceOrientationNotifications;
 - (void)endGeneratingDeviceOrientationNotifications;
 - (BOOL)isGeneratingDeviceOrientationNotifications;
+
+- (BOOL) isWildcat;
 
 @end
 

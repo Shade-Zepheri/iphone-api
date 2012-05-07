@@ -56,6 +56,9 @@
 - (int)state;
 - (void)drawRect:(struct CGRect)fp8;
 - (void)setAccessoryView:(id)fp8;
+#if 1 // iPhoneOS 3.x
+- (void)setAccessoryView:(id)fp8 animate:(BOOL)fp12;
+#endif
 - (void)setAccessoryView:(id)fp8 animate:(BOOL)fp12 removeOnPop:(BOOL)fp16;
 - (void)pushNavigationItem:(id)fp8 animated:(BOOL)fp12;
 - (void)pushNavigationItem:(id)fp8;

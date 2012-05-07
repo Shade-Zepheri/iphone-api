@@ -12,6 +12,9 @@
 - (void)_setShouldIndentWhileEditing:(BOOL)fp8;
 - (void)_setDrawsTopSeparator:(BOOL)fp8;
 - (void)_drawSeparatorInRect:(struct CGRect)fp8;
+#if 1 // iPhoneOS 1.x
+- (void)_drawContentInRect:(struct CGRect)fp8 selected:(BOOL)fp24;
+#endif
 - (void)_drawBackgroundInRect:(struct CGRect)fp8 withFade:(float)fp24;
 - (id)_removeControl;
 - (void)_grabberBeganReorder:(id)fp8;

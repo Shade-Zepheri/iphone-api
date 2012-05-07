@@ -81,6 +81,9 @@
 - (void)mouseDown:(struct __GSEvent *)fp8;
 - (void)mouseDragged:(struct __GSEvent *)fp8;
 - (void)mouseUp:(struct __GSEvent *)fp8;
+#if 1 // iPhoneOS 3.x
+- (void)insertText:(id)fp8;
+#endif
 - (void)scrollRectToVisible:(struct CGRect)fp8 animated:(BOOL)fp24;
 - (void)webViewDidChange:(id)fp8;
 - (void)performBecomeEditableTasks;

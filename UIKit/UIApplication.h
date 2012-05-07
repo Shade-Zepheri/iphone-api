@@ -134,6 +134,9 @@
 - (BOOL)_isLaunchedSuspended;
 - (unsigned int)_portForEvent:(struct __GSEvent *)fp8;
 - (void)suspendWithAnimation:(BOOL)fp8;
+#if 1 // iPhoneOS 3.x
+- (void)suspend;
+#endif
 - (BOOL)registerForSystemEvents;
 - (BOOL)rendersLocally;
 - (void)applicationStarted:(struct __GSEvent *)fp8;
@@ -226,6 +229,9 @@
 - (void)removeStatusBarImageNamed:(id)fp8;
 - (id)applicationBadge;
 - (void)setApplicationBadge:(id)fp8;
+#if 1 // iPhoneOS 3.x
+- (void)setApplicationBadgeString:(id)fp8;
+#endif
 - (void)removeApplicationBadge;
 - (int)applicationIconBadgeNumber;
 - (void)setApplicationIconBadgeNumber:(int)fp8;

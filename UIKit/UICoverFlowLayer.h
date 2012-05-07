@@ -4,7 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2007 by Steve Nygard.
  */
 
-#import "CALayer.h"
+#import <QuartzCore/CALayer.h>
 
 @interface UICoverFlowLayer : CALayer
 {
@@ -12,10 +12,18 @@
 }
 
 - (id)initWithFrame:(struct CGRect)fp8 numberOfCovers:(unsigned int)fp24;
+- (id)initWithFrame:(struct CGRect)fp8 numberOfCovers:(unsigned int)fp24 numberOfPlaceholders:(unsigned int)fp28;
+
 - (unsigned int)numberOfCovers;
+- (unsigned int)numberOfPlaceholders;
+
 - (void)dealloc;
 - (void)setDelegate:(id)fp8;
+
 - (void)setPlaceholderImage:(void *)fp8;
+- (void)setPlaceholderImage:(void *)fp8 atPlaceholderIndex:(unsigned int)fp12;
+- (void)setPlaceholderIndicesForCovers:(unsigned int *)fp8;
+
 - (void)_prefetch:(unsigned int)fp8 atIndex:(unsigned int)fp12;
 - (void)_requestBatch;
 - (void)_requestImageAtIndex:(int)fp8 quality:(unsigned int)fp12;

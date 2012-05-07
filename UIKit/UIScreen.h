@@ -16,6 +16,9 @@
 - (id)init;
 - (struct CGRect)applicationFrame;
 - (struct CGRect)bounds;
+#if 1 // iOS 4.x
+- (float) scale;
+#endif
 
 @end
 

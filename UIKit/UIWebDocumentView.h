@@ -131,6 +131,9 @@
 - (id)_doubleTapSpeedFromDefaults;
 - (void)_restoreViewportSettingsWithSize:(struct CGSize)fp8;
 - (id)initWithFrame:(struct CGRect)fp8;
+#if 1 // iPhoneOS 3.x
+- (void)enableReachability;
+#endif
 - (void)dealloc;
 - (void)release;
 - (void)stopLoading:(id)fp8;
@@ -144,6 +147,10 @@
 - (void)setUserStyleSheet:(id)fp8;
 - (void)setDetectsPhoneNumbers:(BOOL)fp8;
 - (BOOL)detectsPhoneNumbers;
+#if 1 // iPhoneOS 3.x
+- (void)setDataDetectorTypes:(unsigned int)fp8;
+- (unsigned int)dataDetectorTypes;
+#endif
 - (void)setRespectsBackgroundColorAlpha:(BOOL)fp8;
 - (BOOL)respectsBackgroundColorAlpha;
 - (void)setFrame:(struct CGRect)fp8;
@@ -318,6 +325,27 @@
 - (void)forwardInvocation:(id)fp8;
 - (id)methodSignatureForSelector:(SEL)fp8;
 - (void)takeTraitsFrom:(id)fp8;
+#if 1 // iPhoneOS 3.x
+- (void)useSelectionAssistantWithMode:(int)fp8;
+#endif
+
+#if 1 // iPhoneOS 3.2
+- (void)webView:(id)view didFailLoadWithError:(id)error forFrame:(id)frame;
+- (void)webViewDidLayout:(id)webView;
+- (void)webView:(id)view didFirstVisuallyNonEmptyLayoutInFrame:(id)frame;
+- (void)webView:(id)view attachRootLayer:(id)layer;
+- (void)webView:(id)view willAddPlugInView:(id)view2;
+- (void)webViewDidPreventDefaultForEvent:(id)webView;
+#endif
+
+#if 1 // UIWebBrowserView
+- (void)webView:(id)view willCloseFrame:(id)frame;
+- (void)webView:(id)view didFinishDocumentLoadForFrame:(id)frame;
+- (void)webView:(id)view didFirstLayoutInFrame:(id)frame;
+- (void)webViewFormEditedStatusHasChanged:(id)changed;
+- (void)webView:(id)view formStateDidFocusNode:(id)formState;
+- (void)webView:(id)view formStateDidBlurNode:(id)formState;
+#endif
 
 @end
 

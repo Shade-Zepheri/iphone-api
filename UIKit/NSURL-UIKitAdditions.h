@@ -25,5 +25,8 @@
 - (BOOL)isSpringboardHandledURL;
 - (BOOL)isWebSafeTelephoneURL;
 - (id)webSafeTelephoneURL;
+#if 1 // iPhoneOS 3.x
+- (id)phobosURL;
+#endif
 @end
 
