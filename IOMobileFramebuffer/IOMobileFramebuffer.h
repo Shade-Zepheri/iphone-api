@@ -23,6 +23,9 @@ kern_return_t IOMobileFramebufferSwapSetLayer(
 kern_return_t IOMobileFramebufferGetLayerDefaultSurface(IOMobileFramebufferRef connect, int zero, CoreSurfaceBufferRef *surface);
 kern_return_t IOMobileFramebufferOpen(io_service_t service, task_port_t task, uint32_t type, IOMobileFramebufferRef *connect);
 
+void IOMobileFramebufferGetDisplaySize(IOMobileFramebufferRef connect, CGSize *size);
+void IOMobileFramebufferIsMainDisplay(IOMobileFramebufferRef connect, int *main);
+
 #ifdef __cplusplus
 }
 #endif
