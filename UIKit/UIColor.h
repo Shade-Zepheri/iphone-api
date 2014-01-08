@@ -20,7 +20,7 @@
 + (id)lightGrayColor;
 + (id)whiteColor;
 + (id)grayColor;
-+ (id)clearColor;
++ (UIColor *)clearColor;
 + (id)redColor;
 + (id)greenColor;
 + (id)blueColor;

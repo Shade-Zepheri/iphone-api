@@ -12,7 +12,7 @@
     struct CGRect _bounds;
 }
 
-+ (id)mainScreen;
++ (UIScreen *)mainScreen;
 - (id)init;
 - (struct CGRect)applicationFrame;
 - (struct CGRect)bounds;

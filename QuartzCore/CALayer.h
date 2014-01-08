@@ -137,7 +137,7 @@
 - (float)opacity;
 - (void)setOpacity:(float)fp8;
 - (struct CGColor *)backgroundColor;
-- (void)setBackgroundColor:(struct CGColor *)fp8;
+- (void)setBackgroundColor:(UIColor *)fp8;
 - (id)filters;
 - (void)setFilters:(id)fp8;
 - (id)backgroundFilters;
