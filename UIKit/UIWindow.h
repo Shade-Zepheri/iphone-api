@@ -86,7 +86,7 @@
 - (BOOL)_containedInAbsoluteResponderChain;
 - (struct CGPoint)convertWindowToDevice:(struct CGPoint)fp8;
 - (struct CGPoint)convertDeviceToWindow:(struct CGPoint)fp8;
-- (void)setLevel:(float)fp8;
+- (void)setLevel:(CGFloat)fp8;
 - (float)level;
 - (void)setBecomeKeyOnOrderFront:(BOOL)fp8;
 - (void)_slideHeaderView:(id)fp8 andFooterView:(id)fp12 offScreen:(BOOL)fp16 forInterfaceOrientation:(int)fp20;
