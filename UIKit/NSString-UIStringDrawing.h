@@ -8,17 +8,17 @@
 
 @interface NSString (UIStringDrawing)
 - (struct CGSize)sizeWithFont:(id)fp8;
-- (struct CGSize)sizeWithFont:(id)fp8 forWidth:(float)fp12 lineBreakMode:(int)fp16;
+- (struct CGSize)sizeWithFont:(id)fp8 forWidth:(CGFloat)fp12 lineBreakMode:(int)fp16;
 - (struct CGSize)drawAtPoint:(struct CGPoint)fp8 withFont:(id)fp16;
-- (struct CGSize)drawAtPoint:(struct CGPoint)fp8 forWidth:(float)fp16 withFont:(id)fp20 lineBreakMode:(int)fp24;
+- (struct CGSize)drawAtPoint:(struct CGPoint)fp8 forWidth:(CGFloat)fp16 withFont:(id)fp20 lineBreakMode:(int)fp24;
 - (struct CGSize)sizeWithFont:(id)fp8 constrainedToSize:(struct CGSize)fp12;
 - (struct CGSize)sizeWithFont:(id)fp8 constrainedToSize:(struct CGSize)fp12 lineBreakMode:(int)fp20;
 - (struct CGSize)drawInRect:(struct CGRect)fp8 withFont:(id)fp24;
 - (struct CGSize)drawInRect:(struct CGRect)fp8 withFont:(id)fp24 lineBreakMode:(int)fp28;
 - (struct CGSize)drawInRect:(struct CGRect)fp8 withFont:(id)fp24 lineBreakMode:(int)fp28 alignment:(int)fp32;
-- (struct CGSize)sizeWithFont:(id)fp8 minFontSize:(float)fp12 actualFontSize:(float *)fp16 forWidth:(float)fp20 lineBreakMode:(int)fp24;
-- (struct CGSize)drawAtPoint:(struct CGPoint)fp8 forWidth:(float)fp16 withFont:(id)fp20 fontSize:(float)fp24 lineBreakMode:(int)fp28 baselineAdjustment:(int)fp32;
-- (struct CGSize)drawAtPoint:(struct CGPoint)fp8 forWidth:(float)fp16 withFont:(id)fp20 minFontSize:(float)fp24 actualFontSize:(float *)fp28 lineBreakMode:(int)fp32 baselineAdjustment:(int)fp36;
+- (struct CGSize)sizeWithFont:(id)fp8 minFontSize:(CGFloat)fp12 actualFontSize:(CGFloat *)fp16 forWidth:(CGFloat)fp20 lineBreakMode:(int)fp24;
+- (struct CGSize)drawAtPoint:(struct CGPoint)fp8 forWidth:(CGFloat)fp16 withFont:(id)fp20 fontSize:(CGFloat)fp24 lineBreakMode:(int)fp28 baselineAdjustment:(int)fp32;
+- (struct CGSize)drawAtPoint:(struct CGPoint)fp8 forWidth:(CGFloat)fp16 withFont:(id)fp20 minFontSize:(CGFloat)fp24 actualFontSize:(CGFloat *)fp28 lineBreakMode:(int)fp32 baselineAdjustment:(int)fp36;
 - (id)securedStringIncludingLastCharacter:(BOOL)fp8;
 @end
 
