@@ -23,8 +23,8 @@
 - (void)setBackgroundColor:(id)fp8;
 - (id)backgroundColor;
 - (void)setFixedBackgroundPattern:(BOOL)fp8;
-- (void)setAlpha:(float)fp8;
-- (float)alpha;
+- (void)setAlpha:(CGFloat)fp8;
+- (CGFloat)alpha;
 - (void)setOpaque:(BOOL)fp8;
 - (BOOL)isOpaque;
 - (void)setClearsContextBeforeDrawing:(BOOL)fp8;

@@ -102,8 +102,8 @@
 #endif
 
 #if 1 // 5?
-- (void) setIconImageAlpha:(float)alpha;
-- (void) setIconLabelAlpha:(float)alpha;
+- (void) setIconImageAlpha:(CGFloat)alpha;
+- (void) setIconLabelAlpha:(CGFloat)alpha;
 #endif
 
 @end
