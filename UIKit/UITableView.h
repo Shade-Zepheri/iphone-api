@@ -128,7 +128,7 @@
 - (id)dataSource;
 - (void)setDelegate:(id)fp8;
 - (id)delegate;
-- (void)setRowHeight:(float)fp8;
+- (void)setRowHeight:(CGFloat)fp8;
 - (float)rowHeight;
 - (void)setSectionHeaderHeight:(float)fp8;
 - (float)sectionHeaderHeight;

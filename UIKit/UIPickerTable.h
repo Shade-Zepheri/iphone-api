@@ -45,7 +45,7 @@
 - (struct CGPoint)newOffsetWithCenteredRectFromOffset:(struct CGPoint)fp8;
 - (BOOL)scrollCenterCellToSelectionBar;
 - (BOOL)fixupCenterCellToSelectionBar:(BOOL)fp8;
-- (void)setRowHeight:(float)fp8;
+- (void)setRowHeight:(CGFloat)fp8;
 - (void)removeFromSuperview;
 - (void)updateSelectionBarRow;
 

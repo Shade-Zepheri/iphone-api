@@ -76,7 +76,7 @@
 - (id)image;
 - (void)setSelectedImage:(id)fp8;
 - (id)selectedImage;
-- (id)contentView;
+- (UIView *)contentView;
 - (void)setBackgroundView:(id)fp8;
 - (id)backgroundView;
 - (void)setSelectedBackgroundView:(id)fp8;

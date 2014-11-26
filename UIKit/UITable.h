@@ -84,7 +84,7 @@
 - (void)removeTableColumn:(id)fp8;
 - (int)columnWithIdentifier:(id)fp8;
 - (id)tableColumnWithIdentifier:(id)fp8;
-- (void)setRowHeight:(float)fp8;
+- (void)setRowHeight:(CGFloat)fp8;
 - (float)rowHeight;
 - (void)scrollRowToVisible:(int)fp8;
 - (void)clearAllData;

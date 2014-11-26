@@ -208,6 +208,14 @@ typedef enum {
 } UISegmentedControlStyle;
 
 typedef enum {
+   UITableViewCellAccessoryNone,
+   UITableViewCellAccessoryDisclosureIndicator,
+   UITableViewCellAccessoryDetailDisclosureButton,
+   UITableViewCellAccessoryCheckmark,
+   UITableViewCellAccessoryDetailButton
+} UITableViewCellAccessoryType;
+
+typedef enum {
     UITableViewCellEditingStyleNone,
     UITableViewCellEditingStyleDelete,
     UITableViewCellEditingStyleInsert
@@ -449,6 +457,9 @@ extern float const UIWebViewScalesToFitScale;
 extern UIApplication * const UIApp;
 
 //UIFont *UISystemFontWithSize(CGFloat size);
+
+void UIGraphicsPushContext(CGContextRef);
+void UIGraphicsPopContext();
 
 #ifdef __cplusplus
 }
